@@ -1,5 +1,10 @@
 # Teste Técnico Viceri-Seidor
-
+*Sobre a aplicação*
+- Optei por desenvolver o backend utilizando arquitetura limpa, imagino que para uma vaga de júnior conhecimentos de arquitetura são um plus.
+- Desenvolvi também um HUB websocket utilizando SignalR, decidi criar o HUB para que a tabela de Heróis ficasse mais flúida conforme era realizado algumas ações, ex: Editar Herói, excluir Herói ou adicionar novo Herói.
+- Em relação ao EF core, optei por utilizar ele conectado ao banco SQLServer, fiz essa escolha porque armazenamento em cache não é seguro, e já que precisava persistir, porque não em um banco robusto como o SQLServer?
+- Sobre a aplicação Angular, utilizei Angular Material somado ao Bootstrap para facilitar e ganhar um boost no desenvolvimento das interfaces e componentes.
+- E por fim, para manter a aplicação ainda mais robusta implementei o design Pattern `UnitOfWork` para manter o banco o mais seguro o possivel em situações que era preciso manipular muitos dados ou multiplas tabelas.
 ## Instruções para inicializar os projetos
 
 *BACKEND*
