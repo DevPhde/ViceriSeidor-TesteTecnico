@@ -1,0 +1,78 @@
+-- Verifica se o banco de dados 'SuperHeroesDB' existe, e o cria se não existir
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'SuperHeroesDB')
+BEGIN
+    CREATE DATABASE SuperHeroesDB;
+END
+GO
+-- Seleciona o banco de dados
+USE SuperHeroesDB;
+
+-- Verifica se a tabela 'Superpoderes' existe, e a cria se não existir
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Superpoderes]') AND type in (N'U'))
+BEGIN
+    CREATE TABLE Superpoderes (
+        Id INT PRIMARY KEY IDENTITY(1,1),
+        Superpoder NVARCHAR(50) NOT NULL,
+        Descricao NVARCHAR(250) NOT NULL
+    );
+END
+
+-- Verifica se a tabela 'Herois' existe, e a cria se não existir
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Herois]') AND type in (N'U'))
+BEGIN
+    CREATE TABLE Herois (
+        Id INT PRIMARY KEY IDENTITY(1,1),
+        Nome NVARCHAR(120) NOT NULL,
+        NomeHeroi NVARCHAR(120) NOT NULL UNIQUE,
+        DataNascimento DATETIME2(7) NOT NULL,
+        Altura FLOAT NOT NULL,
+        Peso FLOAT NOT NULL
+    );
+END
+
+-- Verifica se a tabela 'HeroisSuperpoderes' existe, e a cria se não existir
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[HeroisSuperpoderes]') AND type in (N'U'))
+BEGIN
+    CREATE TABLE HeroisSuperpoderes (
+        HeroiId INT NOT NULL,
+        SuperpoderId INT NOT NULL,
+        PRIMARY KEY (HeroiId, SuperpoderId),
+        FOREIGN KEY (HeroiId) REFERENCES Herois(Id) ON DELETE CASCADE,
+        FOREIGN KEY (SuperpoderId) REFERENCES Superpoderes(Id) ON DELETE CASCADE
+    );
+END
+
+-- Verifica se o superpoder 'Força Sobre-Humana' já está inserido, e insere se não existir
+IF NOT EXISTS (SELECT * FROM Superpoderes WHERE Superpoder = 'Força Sobre-Humana')
+BEGIN
+    INSERT INTO Superpoderes (Superpoder, Descricao)
+    VALUES ('Força Sobre-Humana', 'Capacidade de exercer força física muito além dos limites humanos normais.');
+END
+
+-- Verifica se o superpoder 'Invisibilidade' já está inserido, e insere se não existir
+IF NOT EXISTS (SELECT * FROM Superpoderes WHERE Superpoder = 'Invisibilidade')
+BEGIN
+    INSERT INTO Superpoderes (Superpoder, Descricao)
+    VALUES ('Invisibilidade', 'Habilidade de se tornar invisível aos olhos dos outros.');
+END
+
+-- Verifica se o superpoder 'Telepatia' já está inserido, e insere se não existir
+IF NOT EXISTS (SELECT * FROM Superpoderes WHERE Superpoder = 'Telepatia')
+BEGIN
+    INSERT INTO Superpoderes (Superpoder, Descricao)
+    VALUES ('Telepatia', 'Capacidade de ler mentes e se comunicar mentalmente com outros.');
+END
+
+-- Verifica se o superpoder 'Voo' já está inserido, e insere se não existir
+IF NOT EXISTS (SELECT * FROM Superpoderes WHERE Superpoder = 'Voo')
+BEGIN
+    INSERT INTO Superpoderes (Superpoder, Descricao)
+    VALUES ('Voo', 'Habilidade de voar sem a necessidade de asas ou outro suporte mecânico.');
+END
+
+-- Verifica se o superpoder 'Velocidade Sobrehumana' já está inserido, e insere se não existir
+IF NOT EXISTS (SELECT * FROM Superpoderes WHERE Superpoder = 'Velocidade Sobrehumana')
+BEGIN
+    INSERT INTO Superpoderes (Superpoder, Descricao)
+    VALUES ('Velocidade Sobrehumana', 'Capacidade de se mover a velocidades muito superiores às humanas normais.');
+END
