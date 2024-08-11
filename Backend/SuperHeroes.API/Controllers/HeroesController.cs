@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SuperHeroes.Application.Exceptions;
+using SuperHeroes.Application.Interfaces;
 using SuperHeroes.Application.Interfaces.Heroes;
 using SuperHeroes.Application.Interfaces.SuperHeroes;
 using SuperHeroes.Application.Mapping;
@@ -15,6 +16,9 @@ namespace SuperHeroes.API.Controllers
     [Route("api/[controller]")]
     public class HeroesController : ControllerBase
     {
+        private readonly IHeroesHub _heroesHub;
+
+        public HeroesController(IHeroesHub heroesHub) => _heroesHub = heroesHub;
 
         [HttpGet]
         public async Task<ActionResult<List<HeroResponse>>> GetAllHeroes([FromServices] IGetAllHeroesHandler _handler)
@@ -54,7 +58,7 @@ namespace SuperHeroes.API.Controllers
             try
             {
                 var newHero = await _handler.Handle(request.ToDto());
-
+                await _heroesHub.SendHeroes();
                 return CreatedAtAction(nameof(GetHeroById), new { heroId = newHero.Id }, newHero);
             }
             catch (ConflictException ex)
@@ -73,7 +77,7 @@ namespace SuperHeroes.API.Controllers
             try
             {
                 var updatedHero = await _handler.Handle(request.ToDto(), HeroId);
-
+                await _heroesHub.SendHeroes();
                 return Ok(updatedHero);
             }
             catch (ConflictException ex)
@@ -96,6 +100,7 @@ namespace SuperHeroes.API.Controllers
             try
             {
                 await _handler.Handle(heroId);
+                await _heroesHub.SendHeroes();
                 return Ok(new { message = "Herói removido com sucesso!" });
             }
             catch (NotFoundException ex)

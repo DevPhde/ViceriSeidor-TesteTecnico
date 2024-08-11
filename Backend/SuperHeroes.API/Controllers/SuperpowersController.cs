@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SuperHeroes.Application.Exceptions;
+using SuperHeroes.Application.Interfaces;
 using SuperHeroes.Application.Interfaces.Superpowers;
 using SuperHeroes.Application.Mapping;
 using SuperHeroes.Application.RequestModels;
@@ -14,6 +15,9 @@ namespace SuperHeroes.API.Controllers
     [ApiController]
     public class SuperpowersController : ControllerBase
     {
+        private readonly IHeroesHub _heroesHub;
+
+        public SuperpowersController(IHeroesHub heroesHub) => _heroesHub = heroesHub;
 
         [HttpGet]
         public async Task<ActionResult<List<SuperpowerResponse>>> GetAllSuperpowers([FromServices] IGetAllSuperpowersHandler _handler)
@@ -35,7 +39,7 @@ namespace SuperHeroes.API.Controllers
             try
             {
                 var newSuperpower = await _handler.Handle(request.ToDto());
-
+                await _heroesHub.SendHeroes();
                 return StatusCode(201, newSuperpower);
             }
             catch (ConflictException ex)
@@ -54,6 +58,7 @@ namespace SuperHeroes.API.Controllers
             try
             {
                 await _handler.Handle(superpowerId);
+                await _heroesHub.SendHeroes();
                 return Ok(new { message = "Superpoder Removido com sucesso!" });
             }
             catch (BadRequestException ex)

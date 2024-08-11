@@ -11,6 +11,7 @@ import { UpdateHeroModalComponent } from '../modals/update-hero-modal/update-her
 import { SuperpowerService } from 'src/app/services/superPower/superpower.service';
 import { Superpoder } from 'src/app/Interfaces/Superpoder.interface';
 import { HeroDetailsModalComponent } from '../modals/hero-details-modal/hero-details-modal.component';
+import { InteractionService } from 'src/app/services/interaction/interaction.service';
 
 @Component({
   selector: 'app-heroes-table',
@@ -26,16 +27,18 @@ export class HeroesTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private heroService: HeroService, public dialog: MatDialog, private superpowerService: SuperpowerService) { }
+  constructor(private heroService: HeroService, public dialog: MatDialog, private superpowerService: SuperpowerService,
+    private interactionService: InteractionService
+  ) { }
 
   ngOnInit(): void {
-    this.heroService.getHeroes()
-      .subscribe((data: Heroi[]) => {
-        this.dataSource.data = data;
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-        this.isLoading = false;
-      })
+
+    this.interactionService.heroes.subscribe(data => {
+      this.dataSource.data = data
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      this.isLoading = false;
+    })
     this.superpowerService.getSuperpowers().subscribe((data: any) => {
       this.superpowers = data;
     })

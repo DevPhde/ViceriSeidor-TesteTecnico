@@ -2,10 +2,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SuperHeroes.API.HubConfig;
+using SuperHeroes.Application.Interfaces;
 using SuperHeroes.Infra.IoC;
 using System;
 using System.Collections.Generic;
@@ -27,13 +30,21 @@ namespace SuperHeroes.API
         public void ConfigureServices(IServiceCollection services)
         {
 
+
             services.AddInfrastructure(Configuration);
 
             services.AddControllers();
 
             services.AddCors();
-
+            services.AddSignalR(options =>
+            {
+                options.KeepAliveInterval = TimeSpan.FromSeconds(10);
+                options.ClientTimeoutInterval = TimeSpan.FromSeconds(30);
+            });
             services.AddSwaggerGen();
+
+            //WEBSOCKET
+            services.AddScoped<IHeroesHub, HeroesHub>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +55,7 @@ namespace SuperHeroes.API
                 options.AllowAnyOrigin()
                 .AllowAnyHeader()
                 .AllowAnyMethod();
-                
+
             });
 
             if (env.IsDevelopment())
@@ -58,7 +69,6 @@ namespace SuperHeroes.API
                 });
             }
 
-
             //app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -68,6 +78,7 @@ namespace SuperHeroes.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<HeroesHub>("/heroesHub");
             });
         }
     }

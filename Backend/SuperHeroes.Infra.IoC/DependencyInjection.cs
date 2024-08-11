@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SuperHeroes.Application.Handlers.Heroes;
 using SuperHeroes.Application.Handlers.SuperHeroes;
 using SuperHeroes.Application.Handlers.Superpowers;
+using SuperHeroes.Application.Interfaces;
 using SuperHeroes.Application.Interfaces.Heroes;
 using SuperHeroes.Application.Interfaces.SuperHeroes;
 using SuperHeroes.Application.Interfaces.Superpowers;
@@ -42,7 +43,6 @@ namespace SuperHeroes.Infra.IoC
             services.AddScoped<IHeroRepository, HeroRepository>();
             services.AddScoped<ISuperpowerRepository, SuperpowerRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-
 
             return services;
         }
