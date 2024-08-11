@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Detalhes do Herói</h2>
+<mat-dialog-content>
+  <p><strong>ID:</strong> {{ data.hero.id }}</p>
+  <p><strong>Nome:</strong> {{ data.hero.nome }}</p>
+  <p><strong>Nome Herói:</strong> {{ data.hero.nomeHeroi }}</p>
+  <p><strong>Data de Nascimento:</strong> {{ data.hero.dataNascimento | date }}</p>
+  <p><strong>Altura:</strong> {{ data.hero.altura }} m</p>
+  <p><strong>Peso:</strong> {{ data.hero.peso }} kg</p>
+  <p><strong>Superpoderes:</strong></p>
+  <ul>
+    <li *ngFor="let poder of data.hero.superpoderes">{{ poder.nome }} - {{ poder.descricao }}</li>
+  </ul>
+</mat-dialog-content>
+<hr>
+<mat-dialog-actions class="justify-content-center d-flex py-3">
+  <button class="btn btn-primary" (click)="onClose()">Fechar</button>
+</mat-dialog-actions>

@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Confirmar Exclusão</h2>
+<mat-dialog-content>
+    <p>Tem certeza que deseja deletar este <strong>{{data.name}}</strong>?</p>
+</mat-dialog-content>
+<hr>
+<mat-dialog-actions class="d-flex justify-content-evenly my-3">
+    <button class="btn btn-danger" style="padding: 5px 20px !important;" (click)="onYesClick()">Sim</button>
+    <button class="btn btn-primary" style="padding: 5px 20px !important;" (click)="onNoClick()">Não</button>
+</mat-dialog-actions>
