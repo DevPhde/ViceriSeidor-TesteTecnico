@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="ResponseModels\**" />
+	  <Content Remove="ResponseModels\**" />
+	  <EmbeddedResource Remove="ResponseModels\**" />
+	  <None Remove="ResponseModels\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\SuperHeroes.Application\SuperHeroes.Application.csproj" />
+	  <ProjectReference Include="..\SuperHeroes.Infra.Data\SuperHeroes.Infra.Data.csproj" />
+	  <ProjectReference Include="..\SuperHeroes.Infra.IoC\SuperHeroes.Infra.IoC.csproj" />
+	</ItemGroup>
+
+
+</Project>

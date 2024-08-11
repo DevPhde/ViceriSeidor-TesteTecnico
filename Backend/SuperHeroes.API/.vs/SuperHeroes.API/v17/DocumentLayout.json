@@ -1,0 +1,155 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DE1AB7D9-0C7C-4969-9D82-8E639102BFB3}|SuperHeroes.API\\SuperHeroes.API.csproj|c:\\users\\diego\\desktop\\repos\\viceriseidor-testetecnico\\backend\\superheroes.api\\superheroes.api\\controllers\\heroescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE1AB7D9-0C7C-4969-9D82-8E639102BFB3}|SuperHeroes.API\\SuperHeroes.API.csproj|solutionrelative:superheroes.api\\controllers\\heroescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE1AB7D9-0C7C-4969-9D82-8E639102BFB3}|SuperHeroes.API\\SuperHeroes.API.csproj|c:\\users\\diego\\desktop\\repos\\viceriseidor-testetecnico\\backend\\superheroes.api\\superheroes.api\\controllers\\superpowerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE1AB7D9-0C7C-4969-9D82-8E639102BFB3}|SuperHeroes.API\\SuperHeroes.API.csproj|solutionrelative:superheroes.api\\controllers\\superpowerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}|SuperHeroes.Application\\SuperHeroes.Application.csproj|c:\\users\\diego\\desktop\\repos\\viceriseidor-testetecnico\\backend\\superheroes.api\\superheroes.application\\handlers\\removesuperpowerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}|SuperHeroes.Application\\SuperHeroes.Application.csproj|solutionrelative:superheroes.application\\handlers\\removesuperpowerhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}|SuperHeroes.Application\\SuperHeroes.Application.csproj|c:\\users\\diego\\desktop\\repos\\viceriseidor-testetecnico\\backend\\superheroes.api\\superheroes.application\\handlers\\removesuperherohandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}|SuperHeroes.Application\\SuperHeroes.Application.csproj|solutionrelative:superheroes.application\\handlers\\removesuperherohandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}|SuperHeroes.Application\\SuperHeroes.Application.csproj|c:\\users\\diego\\desktop\\repos\\viceriseidor-testetecnico\\backend\\superheroes.api\\superheroes.application\\handlers\\updatesuperherohandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}|SuperHeroes.Application\\SuperHeroes.Application.csproj|solutionrelative:superheroes.application\\handlers\\updatesuperherohandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}|SuperHeroes.Application\\SuperHeroes.Application.csproj|c:\\users\\diego\\desktop\\repos\\viceriseidor-testetecnico\\backend\\superheroes.api\\superheroes.application\\handlers\\createsuperherohandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}|SuperHeroes.Application\\SuperHeroes.Application.csproj|solutionrelative:superheroes.application\\handlers\\createsuperherohandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4EE18E92-617E-4EB1-B3FF-A3F092B13392}|SuperHeroes.Infra.Data\\SuperHeroes.Infra.Data.csproj|c:\\users\\diego\\desktop\\repos\\viceriseidor-testetecnico\\backend\\superheroes.api\\superheroes.infra.data\\repositories\\superherorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4EE18E92-617E-4EB1-B3FF-A3F092B13392}|SuperHeroes.Infra.Data\\SuperHeroes.Infra.Data.csproj|solutionrelative:superheroes.infra.data\\repositories\\superherorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 10,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 27,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RemoveSuperpowerHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.Application\\Handlers\\RemoveSuperpowerHandler.cs",
+              "RelativeDocumentMoniker": "SuperHeroes.Application\\Handlers\\RemoveSuperpowerHandler.cs",
+              "ToolTip": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.Application\\Handlers\\RemoveSuperpowerHandler.cs",
+              "RelativeToolTip": "SuperHeroes.Application\\Handlers\\RemoveSuperpowerHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T00:15:43.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SuperpowersController.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.API\\Controllers\\SuperpowersController.cs",
+              "RelativeDocumentMoniker": "SuperHeroes.API\\Controllers\\SuperpowersController.cs",
+              "ToolTip": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.API\\Controllers\\SuperpowersController.cs",
+              "RelativeToolTip": "SuperHeroes.API\\Controllers\\SuperpowersController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAA1wBwAAAByAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T04:45:08.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RemoveSuperHeroHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.Application\\Handlers\\RemoveSuperHeroHandler.cs",
+              "RelativeDocumentMoniker": "SuperHeroes.Application\\Handlers\\RemoveSuperHeroHandler.cs",
+              "ToolTip": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.Application\\Handlers\\RemoveSuperHeroHandler.cs",
+              "RelativeToolTip": "SuperHeroes.Application\\Handlers\\RemoveSuperHeroHandler.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAA3wBQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T00:45:04.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HeroesController.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.API\\Controllers\\HeroesController.cs",
+              "RelativeDocumentMoniker": "SuperHeroes.API\\Controllers\\HeroesController.cs",
+              "ToolTip": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.API\\Controllers\\HeroesController.cs*",
+              "RelativeToolTip": "SuperHeroes.API\\Controllers\\HeroesController.cs*",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAIwG0AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T00:15:09.311Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 8,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SuperHeroRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.Infra.Data\\Repositories\\SuperHeroRepository.cs",
+              "RelativeDocumentMoniker": "SuperHeroes.Infra.Data\\Repositories\\SuperHeroRepository.cs",
+              "ToolTip": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.Infra.Data\\Repositories\\SuperHeroRepository.cs",
+              "RelativeToolTip": "SuperHeroes.Infra.Data\\Repositories\\SuperHeroRepository.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAawFMAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T05:15:44.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UpdateSuperHeroHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.Application\\Handlers\\UpdateSuperHeroHandler.cs",
+              "RelativeDocumentMoniker": "SuperHeroes.Application\\Handlers\\UpdateSuperHeroHandler.cs",
+              "ToolTip": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.Application\\Handlers\\UpdateSuperHeroHandler.cs",
+              "RelativeToolTip": "SuperHeroes.Application\\Handlers\\UpdateSuperHeroHandler.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAswBwAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T05:14:59.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CreateSuperHeroHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.Application\\Handlers\\CreateSuperHeroHandler.cs",
+              "RelativeDocumentMoniker": "SuperHeroes.Application\\Handlers\\CreateSuperHeroHandler.cs",
+              "ToolTip": "C:\\Users\\Diego\\Desktop\\REPOS\\ViceriSeidor-TesteTecnico\\Backend\\SuperHeroes.API\\SuperHeroes.Application\\Handlers\\CreateSuperHeroHandler.cs",
+              "RelativeToolTip": "SuperHeroes.Application\\Handlers\\CreateSuperHeroHandler.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwBcAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T00:05:08.363Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
