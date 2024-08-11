@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SuperHeroes.Application.Exceptions;
-using SuperHeroes.Application.Interfaces;
+using SuperHeroes.Application.Interfaces.Superpowers;
 using SuperHeroes.Application.Mapping;
 using SuperHeroes.Application.RequestModels;
 using SuperHeroes.Application.ResponseModels;

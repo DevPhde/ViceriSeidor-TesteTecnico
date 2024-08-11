@@ -8,28 +8,39 @@ using System.Threading.Tasks;
 
 namespace SuperHeroes.Infra.Data.Repositories
 {
+
     public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
+        private IDbContextTransaction _transaction;
+        public UnitOfWork(AppDbContext context) => _context = context;
 
-        public UnitOfWork(AppDbContext context)
+        public async Task BeginTransactionAsync()
         {
-            _context = context;
+            _transaction = await _context.Database.BeginTransactionAsync();
         }
 
-        public async Task<IDbContextTransaction> BeginTransactionAsync()
+        public async Task SaveChangesAsync()
         {
-            return await _context.Database.BeginTransactionAsync();
+            await _context.SaveChangesAsync();
+        }
+        public async Task Commit()
+        {
+            await _transaction.CommitAsync();
         }
 
-        public async Task<int> CompleteAsync()
+        public async Task Rollback()
         {
-            return await _context.SaveChangesAsync();
+            if(_transaction != null)
+            {
+                await _transaction.RollbackAsync();
+            }
+            
         }
 
         public void Dispose()
         {
-            _context.Dispose();
+            _transaction?.Dispose();
         }
     }
 }

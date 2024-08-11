@@ -1,4 +1,4 @@
-﻿using SuperHeroes.Application.Interfaces;
+﻿using SuperHeroes.Application.Interfaces.Superpowers;
 using SuperHeroes.Application.Mapping;
 using SuperHeroes.Application.ResponseModels;
 using SuperHeroes.Domain.Entities;
@@ -7,17 +7,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SuperHeroes.Application.Handlers
+namespace SuperHeroes.Application.Handlers.Superpowers
 {
     public class GetAllSuperpowersHandler : IGetAllSuperpowersHandler
     {
-        private readonly ISuperHeroRepository _repository;
+        private readonly ISuperpowerRepository _superpowerRepository;
 
-        public GetAllSuperpowersHandler(ISuperHeroRepository repository) => _repository = repository;
+        public GetAllSuperpowersHandler(ISuperpowerRepository superpowerRepository) => _superpowerRepository = superpowerRepository;
 
         public async Task<List<SuperpowerResponse>> Handle()
         {
-            List<Superpoder> superpowers = await _repository.GetAllSuperpowersAsync();
+            List<Superpoder> superpowers = await _superpowerRepository.GetAllSuperpowersAsync();
 
             return superpowers.Select(sp => sp.ToResponse()).ToList();
         }

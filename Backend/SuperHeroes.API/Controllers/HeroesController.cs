@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SuperHeroes.Application.Exceptions;
-using SuperHeroes.Application.Interfaces;
+using SuperHeroes.Application.Interfaces.Heroes;
+using SuperHeroes.Application.Interfaces.SuperHeroes;
 using SuperHeroes.Application.Mapping;
 using SuperHeroes.Application.RequestModels;
 using SuperHeroes.Application.ResponseModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
 using System.Threading.Tasks;
 
 namespace SuperHeroes.API.Controllers
@@ -16,13 +15,14 @@ namespace SuperHeroes.API.Controllers
     [Route("api/[controller]")]
     public class HeroesController : ControllerBase
     {
+
         [HttpGet]
-        public async Task<ActionResult<List<HeroAndSuperpowersResponse>>> GetallSuperHeroes([FromServices] IGetAllHeroesAndSuperpowersHandler _handler)
+        public async Task<ActionResult<List<HeroResponse>>> GetAllHeroes([FromServices] IGetAllHeroesHandler _handler)
         {
             try
             {
-                var heroesAndSuperpowers = await _handler.Handle();
-                return Ok(heroesAndSuperpowers);
+                var heroesWithSuperpowers = await _handler.Handle();
+                return Ok(heroesWithSuperpowers);
             }
             catch (Exception)
             {
@@ -30,12 +30,12 @@ namespace SuperHeroes.API.Controllers
             }
         }
 
-        [HttpGet("{superHeroId}")]
-        public async Task<ActionResult<HeroAndSuperpowersResponse>> GetSuperHeroById([FromServices] IGetSuperHeroByIdHandler _handler, [FromRoute] int superHeroId)
+        [HttpGet("{heroId}")]
+        public async Task<ActionResult<HeroResponse>> GetHeroById([FromServices] IGetHeroByIdHandler _handler, [FromRoute] int heroId)
         {
             try
             {
-                var hero = await _handler.Handle(superHeroId);
+                var hero = await _handler.Handle(heroId);
                 return Ok(hero);
             }
             catch (NotFoundException ex)
@@ -49,13 +49,13 @@ namespace SuperHeroes.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<HeroAndSuperpowersResponse>> AddNewSuperHero([FromServices] ICreateSuperHeroHandler _handler, [FromBody] SuperHeroRequest request)
+        public async Task<ActionResult<HeroResponse>> AddHero([FromServices] ICreateHeroHandler _handler, [FromBody] HeroRequest request)
         {
             try
             {
-                var newSuperHero = await _handler.Handle(request.ToDto());
+                var newHero = await _handler.Handle(request.ToDto());
 
-                return CreatedAtAction(nameof(GetSuperHeroById), new { superHeroId = newSuperHero.Id }, newSuperHero);
+                return CreatedAtAction(nameof(GetHeroById), new { heroId = newHero.Id }, newHero);
             }
             catch (ConflictException ex)
             {
@@ -67,14 +67,14 @@ namespace SuperHeroes.API.Controllers
             }
         }
 
-        [HttpPut("{superHeroId}")]
-        public async Task<ActionResult<HeroAndSuperpowersResponse>> UpdateSuperHero([FromServices] IUpdateSuperHeroHandler _handler, [FromRoute] int superHeroId, [FromBody] SuperHeroRequest request)
+        [HttpPut("{heroId}")]
+        public async Task<ActionResult<HeroResponse>> UpdateHero([FromServices] IUpdateHeroHandler _handler, [FromRoute] int HeroId, [FromBody] HeroRequest request)
         {
             try
             {
-                var updatedSuperHero = await _handler.Handle(request.ToDto(), superHeroId);
+                var updatedHero = await _handler.Handle(request.ToDto(), HeroId);
 
-                return Ok(updatedSuperHero);
+                return Ok(updatedHero);
             }
             catch (ConflictException ex)
             {
@@ -90,13 +90,13 @@ namespace SuperHeroes.API.Controllers
             }
         }
 
-        [HttpDelete("{superHeroId}")]
-        public async Task<ActionResult> DeleteSuperHero([FromServices] IRemoveSuperHeroHandler _handler, [FromRoute] int superHeroId)
+        [HttpDelete("{heroId}")]
+        public async Task<ActionResult> DeleteHero([FromServices] IRemoveHeroHandler _handler, [FromRoute] int heroId)
         {
             try
             {
-                await _handler.handle(superHeroId);
-                return Ok(new {message = "Super-Herói removido com sucesso!" });
+                await _handler.Handle(heroId);
+                return Ok(new { message = "Herói removido com sucesso!" });
             }
             catch (NotFoundException ex)
             {

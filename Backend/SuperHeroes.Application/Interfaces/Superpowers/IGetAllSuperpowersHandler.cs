@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperHeroes.Application.Interfaces
+namespace SuperHeroes.Application.Interfaces.Superpowers
 {
-    public interface IGetAllHeroesAndSuperpowersHandler
+    public interface IGetAllSuperpowersHandler
     {
-        Task<List<HeroAndSuperpowersResponse>> Handle();
+        Task<List<SuperpowerResponse>> Handle();
     }
 }

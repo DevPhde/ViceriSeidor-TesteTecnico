@@ -1,12 +1,13 @@
-﻿using System;
+﻿using SuperHeroes.Domain.Entities;
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SuperHeroes.Application.ResponseModels
 {
     public class HeroResponse
     {
-        public HeroResponse(int? id, string nome, string nomeHeroi, DateTime? dataNascimento, float altura, float peso)
+        public HeroResponse(int? id, string nome, string nomeHeroi, DateTime? dataNascimento, float altura, float peso, ICollection<SuperpowerResponse> superpoderes)
         {
             Id = id;
             Nome = nome;
@@ -14,6 +15,7 @@ namespace SuperHeroes.Application.ResponseModels
             DataNascimento = dataNascimento;
             Altura = altura;
             Peso = peso;
+            Superpoderes = superpoderes;
         }
         public HeroResponse()
         {
@@ -28,5 +30,6 @@ namespace SuperHeroes.Application.ResponseModels
         public float Altura { get; set; } = 0.00F;
 
         public float Peso { get; set; } = 0.00F;
+        public ICollection<SuperpowerResponse> Superpoderes { get; set; }
     }
 }
