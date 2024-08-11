@@ -15,7 +15,7 @@ Para rodar o docker-compose basta ter o docker instalado no computador e rodar o
 
 *FRONTEND*
 - Abrir a pasta do projeto frontend
-- Rodar npm i
+- Rodar `npm i`
 - Caso não possua a CLI do angular rode o comando `npm i @angular/cli@16.2.14`
 - Rode o comando ng s
 - A aplicação irá iniciar na seguinte url => http://localhost:4200
