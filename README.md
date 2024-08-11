@@ -8,6 +8,7 @@
 - Rodar o seguinte comando `dotnet ef database update --no-build`
 
 PS: A string de conexão está configurada para um container docker com a imagem do MSSQL 2019, estarei disponibilizando o docker-compose caso você não possua o banco MSSQL no computador. 
+PS²: Pode ser que pelo terminal com o comando acima não funcione, caso isso ocorra tente pelo `Console do Gerenciador de pacotes` do próprio visual studio utilizando o comando `update-database`
 
 OBS: Caso sinta dificuldade em fazer a migration estarei disponibilizando um arquivo(QueriesDB.txt) contendo queries para montar as tabelas do banco e já popular a tabela de superpoderes com alguns dados, basta rodar as queries no SSMS.
 Para rodar o docker-compose basta ter o docker instalado no computador e rodar o comnado docker-compose up
