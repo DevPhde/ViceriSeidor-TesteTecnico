@@ -1,19 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using SuperHeroes.API.HubConfig;
 using SuperHeroes.Application.Interfaces;
 using SuperHeroes.Infra.IoC;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SuperHeroes.API
 {
@@ -25,8 +19,6 @@ namespace SuperHeroes.API
         }
 
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -41,13 +33,16 @@ namespace SuperHeroes.API
                 options.KeepAliveInterval = TimeSpan.FromSeconds(10);
                 options.ClientTimeoutInterval = TimeSpan.FromSeconds(30);
             });
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SuperHeroes API", Version = "v1" });
+                c.EnableAnnotations();
+            });
 
             //WEBSOCKET
             services.AddScoped<IHeroesHub, HeroesHub>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(options =>

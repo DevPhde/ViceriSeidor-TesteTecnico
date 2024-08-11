@@ -16,7 +16,7 @@ namespace SuperHeroes.Application.Handlers.SuperHeroes
 
         public async Task<HeroResponse> Handle(int superHeroId)
         {
-            Heroi hero = await _heroRepository.GetHeroByIdAsync(superHeroId) ?? throw new NotFoundException("Super Heroi não encontrado.");
+            Heroi hero = await _heroRepository.GetHeroByIdAsync(superHeroId) ?? throw new NotFoundException("Herói não encontrado.");
 
             return hero.ToResponse();
         }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using SuperHeroes.Application.Exceptions;
 using SuperHeroes.Application.Interfaces;
 using SuperHeroes.Application.Interfaces.Heroes;
@@ -6,6 +7,7 @@ using SuperHeroes.Application.Interfaces.SuperHeroes;
 using SuperHeroes.Application.Mapping;
 using SuperHeroes.Application.RequestModels;
 using SuperHeroes.Application.ResponseModels;
+using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -21,6 +23,11 @@ namespace SuperHeroes.API.Controllers
         public HeroesController(IHeroesHub heroesHub) => _heroesHub = heroesHub;
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<HeroResponse>))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(object))]
+        [SwaggerOperation(Summary = "Retorna todos os heróis com seus superpoderes", Description = "Este endpoint retorna uma lista de heróis com detalhes de seus superpoderes")]
+        [SwaggerResponse(200, "Retornada lista com todos os heróis cadastrados.", typeof(string))]
+        [SwaggerResponse(500, "Erro interno no servidor. Tente novamente mais tarde.", typeof(string))]
         public async Task<ActionResult<List<HeroResponse>>> GetAllHeroes([FromServices] IGetAllHeroesHandler _handler)
         {
             try
@@ -35,6 +42,13 @@ namespace SuperHeroes.API.Controllers
         }
 
         [HttpGet("{heroId}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(HeroResponse))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(object))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(object))]
+        [SwaggerOperation(Summary = "Busca um herói pelo ID", Description = "Este endpoint retorna os detalhes de um herói com base no ID fornecido")]
+        [SwaggerResponse(201, "O herói foi criado com sucesso.", typeof(HeroResponse))]
+        [SwaggerResponse(404, "Conflito ao criar o herói. Exemplo de retorno: 'Herói não encontrado.'", typeof(string))]
+        [SwaggerResponse(500, "Erro interno no servidor. Tente novamente mais tarde.", typeof(string))]
         public async Task<ActionResult<HeroResponse>> GetHeroById([FromServices] IGetHeroByIdHandler _handler, [FromRoute] int heroId)
         {
             try
@@ -44,7 +58,7 @@ namespace SuperHeroes.API.Controllers
             }
             catch (NotFoundException ex)
             {
-                return BadRequest(new { ex.Message });
+                return NotFound(new { ex.Message });
             }
             catch (Exception)
             {
@@ -53,6 +67,13 @@ namespace SuperHeroes.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(HeroResponse))]
+        [ProducesResponseType(StatusCodes.Status409Conflict, Type = typeof(object))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(object))]
+        [SwaggerOperation(Summary = "Adiciona um novo herói", Description = "Este endpoint permite a criação de um novo herói com superpoderes")]
+        [SwaggerResponse(201, "O herói foi criado com sucesso.", typeof(HeroResponse))]
+        [SwaggerResponse(409, "Conflito ao criar o herói. Exemplo de retorno: 'Nome de Heroi já cadastrado.'", typeof(string))]
+        [SwaggerResponse(500, "Erro interno no servidor. Tente novamente mais tarde.", typeof(string))]
         public async Task<ActionResult<HeroResponse>> AddHero([FromServices] ICreateHeroHandler _handler, [FromBody] HeroRequest request)
         {
             try
@@ -72,6 +93,15 @@ namespace SuperHeroes.API.Controllers
         }
 
         [HttpPut("{heroId}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(HeroResponse))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(object))]
+        [ProducesResponseType(StatusCodes.Status409Conflict, Type = typeof(object))]  
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(object))]
+        [SwaggerOperation(Summary = "Atualiza um herói existente", Description = "Este endpoint permite a atualização dos dados de um herói existente")]
+        [SwaggerResponse(200, "Herói atualizado com sucesso.", typeof(HeroResponse))]
+        [SwaggerResponse(404, "Herói não encontrado. Exemplo de retorno: 'Herói não encontrado.'", typeof(string))]
+        [SwaggerResponse(409, "Conflito ao atualizar o herói. Exemplo de retorno: 'Este nome de Herói já está em uso.'", typeof(string))]
+        [SwaggerResponse(500, "Erro interno no servidor. Tente novamente mais tarde.", typeof(string))]
         public async Task<ActionResult<HeroResponse>> UpdateHero([FromServices] IUpdateHeroHandler _handler, [FromRoute] int HeroId, [FromBody] HeroRequest request)
         {
             try
@@ -80,13 +110,13 @@ namespace SuperHeroes.API.Controllers
                 await _heroesHub.SendHeroes();
                 return Ok(updatedHero);
             }
-            catch (ConflictException ex)
-            {
-                return Conflict(new { ex.Message });
-            }
             catch (NotFoundException ex)
             {
                 return NotFound(new { ex.Message });
+            }
+            catch (ConflictException ex)
+            {
+                return Conflict(new { ex.Message });
             }
             catch (Exception)
             {
@@ -95,6 +125,13 @@ namespace SuperHeroes.API.Controllers
         }
 
         [HttpDelete("{heroId}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(object))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(object))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(object))]
+        [SwaggerOperation(Summary = "Deleta um herói", Description = "Este endpoint permite a remoção de um herói existente com base no ID")]
+        [SwaggerResponse(200, "Herói removido com sucesso.", typeof(string))]
+        [SwaggerResponse(404, "Herói não encontrado. Exemplo de retorno: 'Herói não encontrado.'", typeof(string))]
+        [SwaggerResponse(500, "Erro interno no servidor. Tente novamente mais tarde.", typeof(string))]
         public async Task<ActionResult> DeleteHero([FromServices] IRemoveHeroHandler _handler, [FromRoute] int heroId)
         {
             try
