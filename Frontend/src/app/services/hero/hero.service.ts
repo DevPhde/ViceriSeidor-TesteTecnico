@@ -12,10 +12,6 @@ export class HeroService {
 
   constructor(private http: HttpClient) { }
 
-  getHeroes(): Observable<any[]> {
-    return this.http.get<Heroi[]>(`${this.apiUrl}/Heroes`);
-  }
-
   addHero(hero: any): Observable<any> {
     return this.http.post<Heroi>(`${this.apiUrl}/heroes`, hero);
   }

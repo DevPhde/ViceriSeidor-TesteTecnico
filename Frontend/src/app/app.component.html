@@ -1,12 +1,6 @@
 <header>
-  <h1 class="text-center">Super Heróis CRUD</h1>
+  <app-navbar></app-navbar>
 </header>
-
 <main>
-  <div>
-    <div class="text-center mb-5 mt-5">
-      <button class="btn btn-success" (click)="openCreateHeroModal()">Cadastrar Super Herói</button>
-    </div>
-    <app-heroes-table></app-heroes-table>
-  </div>
+  <router-outlet></router-outlet>
 </main>

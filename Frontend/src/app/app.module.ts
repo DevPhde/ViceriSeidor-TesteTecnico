@@ -25,6 +25,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HeroDetailsModalComponent } from './components/modals/hero-details-modal/hero-details-modal.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { HomeComponent } from './pages/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,9 +39,14 @@ import { MatChipsModule } from '@angular/material/chips';
     RemoveModalComponent,
     UpdateHeroModalComponent,
     CreateHeroModalComponent,
-    HeroDetailsModalComponent
+    HeroDetailsModalComponent,
+    HomeComponent,
+    NavbarComponent,
   ],
   imports: [
+    MatListModule,
+    MatSidenavModule,
+    MatToolbarModule,
     MatChipsModule,
     MatTooltipModule,
     MatIconModule,

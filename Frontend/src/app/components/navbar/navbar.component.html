@@ -1,0 +1,29 @@
+<mat-toolbar color="primary" style="height: 100px; background-color: black;">
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Super Heróis</span>
+
+    <div style="margin-left: auto;" class="mt-4">
+        <mat-form-field  >
+            <mat-label>Buscar Herói por ID</mat-label>
+            <input matInput #heroIdInput type="number" placeholder="Digite o ID do Herói">
+            <button mat-icon-button matSuffix (click)="searchHeroById(heroIdInput.value)">
+                <mat-icon style="color: black;">search</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/home" routerLinkActive="active">Home</a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <!-- Aqui vão as suas rotas -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
