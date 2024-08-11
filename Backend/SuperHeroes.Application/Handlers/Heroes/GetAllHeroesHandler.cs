@@ -17,7 +17,7 @@ namespace SuperHeroes.Application.Handlers.SuperHeroes
         {
             List<Heroi> heroes = await _heroRepository.GetAllHeroesAsync();
 
-            return heroes.Select(hs => hs.ToResponse()).ToList();
+            return heroes.Select(h => h.ToResponse()).ToList();
         }
     }
 }
