@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHeroes.Infra.Data", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHeroes.Infra.IoC", "SuperHeroes.Infra.IoC\SuperHeroes.Infra.IoC.csproj", "{0FF592A2-6DB2-41E8-A953-F2CAE74C0214}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHeroes.Application", "SuperHeroes.Application\SuperHeroes.Application.csproj", "{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHeroes.Application", "SuperHeroes.Application\SuperHeroes.Application.csproj", "{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHeroes.Xunit", "SuperHeroes.Xunit\SuperHeroes.Xunit.csproj", "{D9AB5D45-4F7F-4223-89A1-58CD4BE561B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C542DE97-FB3A-4631-AEF1-7DE664ACA61B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9AB5D45-4F7F-4223-89A1-58CD4BE561B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9AB5D45-4F7F-4223-89A1-58CD4BE561B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9AB5D45-4F7F-4223-89A1-58CD4BE561B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9AB5D45-4F7F-4223-89A1-58CD4BE561B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
